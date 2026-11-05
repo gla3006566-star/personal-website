@@ -1,1 +1,1391 @@
-<!DOCTYPE html> ...完整個人網站 HTML...
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>朱珈麟 Chu Chia-Lin｜行銷與社群內容作品集</title>
+
+  <meta
+    name="description"
+    content="朱珈麟 Chu Chia-Lin 的個人作品集，呈現社群內容企劃、活動宣傳、專案協調、工作經歷與國際策略行銷研究背景。"
+  >
+  <meta name="theme-color" content="#f7f6f2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* 設計方向：溫暖中性色、藍綠重點色、編輯式個人作品集 */
+
+    :root {
+      color-scheme: light;
+
+      --bg: #f7f6f2;
+      --surface: #fffefa;
+      --soft: #eeece5;
+      --text: #292d2b;
+      --muted: #626964;
+      --accent: #14665d;
+      --accent-hover: #0e4d46;
+      --accent-soft: #e1ede7;
+      --on-accent: #ffffff;
+      --border: #d8dcd4;
+
+      --font-body: "Noto Sans TC", sans-serif;
+      --font-display: "Noto Serif TC", serif;
+
+      --text-small: clamp(.8rem, .77rem + .15vw, .9rem);
+      --text-base: clamp(1rem, .97rem + .15vw, 1.08rem);
+      --text-heading: clamp(1.5rem, 1.2rem + 1.3vw, 2.2rem);
+      --text-hero: clamp(2.1rem, 1.35rem + 3vw, 4.3rem);
+
+      --s1: .25rem;
+      --s2: .5rem;
+      --s3: .75rem;
+      --s4: 1rem;
+      --s5: 1.25rem;
+      --s6: 1.5rem;
+      --s8: 2rem;
+      --s10: 2.5rem;
+      --s12: 3rem;
+      --s16: 4rem;
+      --s20: 5rem;
+      --s24: 6rem;
+
+      --radius: .8rem;
+      --width: 1120px;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+
+      --bg: #181d1b;
+      --surface: #202724;
+      --soft: #29322d;
+      --text: #edf0e9;
+      --muted: #b2beb5;
+      --accent: #9ad5bd;
+      --accent-hover: #b4e5d1;
+      --accent-soft: #293f35;
+      --on-accent: #122b22;
+      --border: #3e4b43;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1, h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.5;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: var(--text-heading);
+    }
+
+    h3 {
+      font-size: var(--text-base);
+      line-height: 1.65;
+    }
+
+    p + p {
+      margin-top: var(--s4);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+      transition:
+        background-color .2s,
+        color .2s,
+        border-color .2s;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    a:active,
+    button:active {
+      opacity: .8;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    .container {
+      width: min(calc(100% - 3rem), var(--width));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--s4);
+      z-index: 100;
+      padding: var(--s3) var(--s4);
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    .skip-link:focus {
+      top: var(--s4);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s4);
+      min-height: 80px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s3);
+      min-height: 44px;
+      font-weight: 700;
+    }
+
+    .brand svg {
+      width: 34px;
+      height: 34px;
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+    }
+
+    .nav {
+      display: flex;
+      gap: var(--s5);
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      color: var(--muted);
+      font-size: var(--text-small);
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: var(--s2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      font-size: var(--text-small);
+    }
+
+    .menu-button {
+      display: none;
+      border-radius: var(--radius);
+    }
+
+    .hero {
+      padding-block: clamp(var(--s16), 10vw, var(--s24));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      align-items: end;
+      gap: var(--s16);
+    }
+
+    .eyebrow {
+      margin-bottom: var(--s5);
+      color: var(--accent);
+      font-size: var(--text-small);
+      font-weight: 600;
+      letter-spacing: .1em;
+    }
+
+    .hero h1 {
+      max-width: 16ch;
+      font-size: var(--text-hero);
+      letter-spacing: -.03em;
+    }
+
+    .hero-description {
+      max-width: 58ch;
+      margin-top: var(--s6);
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s3);
+      margin-top: var(--s8);
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: var(--s3) var(--s6);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      font-size: var(--text-small);
+      font-weight: 600;
+    }
+
+    .button-primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    .button-primary:hover {
+      border-color: var(--accent-hover);
+      background: var(--accent-hover);
+    }
+
+    .intro-note {
+      padding: var(--s8);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .intro-name {
+      margin-bottom: var(--s2);
+      font-size: var(--text-heading);
+      font-family: var(--font-display);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: var(--text-small);
+    }
+
+    .intro-list {
+      display: grid;
+      gap: var(--s4);
+      margin: var(--s6) 0 0;
+    }
+
+    .intro-list div {
+      padding-top: var(--s4);
+      border-top: 1px solid var(--border);
+    }
+
+    .intro-list dt {
+      color: var(--muted);
+      font-size: var(--text-small);
+    }
+
+    .intro-list dd {
+      margin: var(--s1) 0 0;
+      font-weight: 500;
+    }
+
+    .section {
+      padding-block: clamp(var(--s12), 7vw, var(--s20));
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--s8);
+      margin-bottom: var(--s10);
+    }
+
+    .section-kicker {
+      margin-bottom: var(--s2);
+      color: var(--accent);
+      font-size: var(--text-small);
+      letter-spacing: .06em;
+    }
+
+    .section-heading > p {
+      max-width: 60ch;
+      align-self: end;
+      color: var(--muted);
+    }
+
+    .project {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .project-top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--s10);
+      padding: var(--s10);
+    }
+
+    .project-title {
+      margin-bottom: var(--s4);
+      font-size: var(--text-heading);
+      font-family: var(--font-display);
+    }
+
+    .project-role {
+      margin-bottom: var(--s4);
+      color: var(--accent);
+      font-size: var(--text-small);
+      font-weight: 500;
+    }
+
+    .project-details {
+      padding: var(--s8) var(--s10);
+      border-top: 1px solid var(--border);
+    }
+
+    .project-details summary {
+      min-height: 44px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .project-details[open] summary {
+      margin-bottom: var(--s4);
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: var(--s3);
+      margin: var(--s4) 0 0;
+      padding-left: var(--s5);
+      color: var(--muted);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--accent-soft);
+    }
+
+    .metric {
+      padding: var(--s6);
+    }
+
+    .metric + .metric {
+      border-left: 1px solid var(--border);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: var(--s2);
+      color: var(--accent);
+      font-size: var(--text-heading);
+      line-height: 1.3;
+    }
+
+    .metric span {
+      display: block;
+      font-size: var(--text-small);
+    }
+
+    .project-note {
+      padding: var(--s4) var(--s6);
+      color: var(--muted);
+      font-size: var(--text-small);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: var(--s12);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s2);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tags li {
+      padding: var(--s2) var(--s3);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: var(--text-small);
+    }
+
+    .about-aside {
+      padding: var(--s6);
+      background: var(--soft);
+      border-radius: var(--radius);
+    }
+
+    .about-aside h3 {
+      margin-bottom: var(--s4);
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--s8);
+      padding-block: var(--s8);
+      border-top: 1px solid var(--border);
+    }
+
+    .experience-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .experience-date {
+      margin-bottom: var(--s3);
+      color: var(--accent);
+      font-size: var(--text-small);
+    }
+
+    .experience-company {
+      margin-top: var(--s2);
+      color: var(--muted);
+    }
+
+    .experience-content > p {
+      color: var(--muted);
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: var(--s6);
+    }
+
+    .education-card {
+      padding: var(--s8);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .education-card h3 {
+      margin-bottom: var(--s2);
+    }
+
+    .degree {
+      margin-top: var(--s3);
+    }
+
+    .thesis {
+      margin-top: var(--s8);
+      padding-top: var(--s6);
+      border-top: 1px solid var(--border);
+    }
+
+    .thesis-label {
+      margin-bottom: var(--s3);
+      color: var(--accent);
+      font-size: var(--text-small);
+      font-weight: 600;
+    }
+
+    .thesis-title {
+      margin-bottom: var(--s4);
+      font-weight: 600;
+      line-height: 1.8;
+    }
+
+    .skills-list {
+      margin: 0;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--s8);
+      padding-block: var(--s5);
+      border-top: 1px solid var(--border);
+    }
+
+    .skill-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .skill-row dt {
+      font-weight: 600;
+    }
+
+    .skill-row dd {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .learning {
+      display: inline-block;
+      margin-left: var(--s2);
+      padding: var(--s1) var(--s2);
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: var(--text-small);
+    }
+
+    .contact {
+      background: var(--soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: var(--s10);
+    }
+
+    .contact h2 {
+      margin-bottom: var(--s5);
+    }
+
+    .contact p {
+      max-width: 55ch;
+      color: var(--muted);
+    }
+
+    .contact-action {
+      display: grid;
+      justify-items: start;
+      gap: var(--s4);
+    }
+
+    .email-link {
+      padding-block: var(--s2);
+      color: var(--accent);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-underline-offset: .3em;
+    }
+
+    .footer {
+      padding-block: var(--s6);
+      color: var(--muted);
+      font-size: var(--text-small);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s4);
+    }
+
+    .footer a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .project-top,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--s8);
+      }
+
+      .hero h1 {
+        max-width: 18ch;
+      }
+
+      .intro-note {
+        max-width: 600px;
+      }
+
+      .nav {
+        gap: var(--s3);
+      }
+
+      .nav a {
+        font-size: var(--text-small);
+      }
+
+      .header-actions {
+        gap: var(--s2);
+      }
+    }
+
+    @media (max-width: 720px) {
+      html {
+        scroll-padding-top: 5rem;
+      }
+
+      .container {
+        width: min(calc(100% - 2rem), var(--width));
+      }
+
+      .header-inner {
+        min-height: 72px;
+      }
+
+      .menu-button {
+        display: inline-grid;
+      }
+
+      .nav {
+        display: grid;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        gap: 0;
+        padding: var(--s3) var(--s4);
+        border-bottom: 1px solid var(--border);
+        background: var(--bg);
+      }
+
+      .nav[hidden] {
+        display: none;
+      }
+
+      .nav a {
+        padding-inline: var(--s3);
+      }
+
+      .section-heading,
+      .experience-item,
+      .education-grid,
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: var(--s4);
+      }
+
+      .project-top,
+      .education-card {
+        padding: var(--s6);
+      }
+
+      .project-details {
+        padding: var(--s5) var(--s6);
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        align-items: center;
+        gap: var(--s4);
+      }
+
+      .metric strong {
+        margin-bottom: 0;
+      }
+
+      .metric + .metric {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .experience-item + .experience-item {
+        margin-top: var(--s4);
+      }
+
+      .learning {
+        margin-left: 0;
+        margin-top: var(--s2);
+      }
+    }
+
+    @media print {
+      .site-header,
+      .actions,
+      .contact-action .button,
+      .footer a {
+        display: none;
+      }
+
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .hero,
+      .section {
+        padding-block: var(--s6);
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .project,
+      .education-card,
+      .intro-note {
+        break-inside: avoid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="朱珈麟個人網站首頁">
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M27 10a13 13 0 1 0 0 20"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M25 13v14h9"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>Chu Chia-Lin</span>
+      </a>
+
+      <div class="header-actions">
+        <nav class="nav" id="navigation" aria-label="主要導覽">
+          <a href="#projects">精選專案</a>
+          <a href="#about">關於我</a>
+          <a href="#experience">工作經歷</a>
+          <a href="#education">學歷</a>
+          <a href="#contact">聯絡</a>
+        </nav>
+
+        <button
+          class="icon-button"
+          id="theme-toggle"
+          type="button"
+          aria-label="切換深色模式"
+          aria-pressed="false"
+        >
+          <span id="theme-label" aria-hidden="true">深色</span>
+        </button>
+
+        <button
+          class="icon-button menu-button"
+          id="menu-toggle"
+          type="button"
+          aria-controls="navigation"
+          aria-expanded="false"
+          aria-label="開啟導覽選單"
+        >
+          選單
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 首頁 -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">行銷企劃 · 社群內容 · 專案協調</p>
+
+          <h1 id="hero-title">
+            從理解受眾出發，<br>
+            讓內容與執行<br>
+            相互連結。
+          </h1>
+
+          <p class="hero-description">
+            我是朱珈麟，畢業於英國格拉斯哥大學國際策略行銷碩士。
+            具備社群內容企劃、活動宣傳、行政協調與顧客服務經驗，
+            擅長整理資訊、規劃文案與視覺素材，並透過團隊溝通與成效觀察，
+            持續調整內容與執行方向。
+          </p>
+
+          <div class="actions">
+            <a class="button button-primary" href="#projects">
+              查看專案作品
+            </a>
+            <a class="button" href="#about">
+              認識我
+            </a>
+          </div>
+        </div>
+
+        <aside class="intro-note" aria-label="個人背景摘要">
+          <p class="intro-name">朱珈麟</p>
+          <p class="muted">Chu Chia-Lin</p>
+
+          <dl class="intro-list">
+            <div>
+              <dt>教育背景</dt>
+              <dd>International Strategic Marketing</dd>
+            </div>
+            <div>
+              <dt>實務經驗</dt>
+              <dd>社群內容、活動宣傳與行政協調</dd>
+            </div>
+            <div>
+              <dt>研究關注</dt>
+              <dd>同儕影響與體驗式旅遊消費</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 精選專案 -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Selected Project</p>
+            <h2 id="projects-title">精選專案</h2>
+          </div>
+          <p>
+            從內容主題、文案與視覺素材，到發布排程與團隊協作，
+            將創意想法落實為持續推進的社群內容。
+          </p>
+        </div>
+
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <p class="project-role">
+                社群內容企劃與活動宣傳｜2026.06–至今
+              </p>
+
+              <h3 class="project-title">T.A.B. 歇睏一下</h3>
+
+              <p class="muted">
+                參與樂團 Instagram 與 Facebook 的內容經營，
+                負責主題發想、文案撰寫、視覺素材製作與發布排程，
+                並協助演出宣傳及團隊協調。
+              </p>
+            </div>
+
+            <div>
+              <h3>我的參與範圍</h3>
+
+              <ul class="bullet-list">
+                <li>規劃貼文、限時動態與 Reels，每週維持約 2–3 則內容發布。</li>
+                <li>結合受眾興趣、時事與資訊分享，發想主題及互動內容。</li>
+                <li>觀察觸及、瀏覽、互動與粉絲成長，作為內容調整依據。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="metrics" aria-label="專案期間成果">
+            <div class="metric">
+              <strong>約 69%</strong>
+              <span>Instagram 粉絲成長<br>278 → 470 人</span>
+            </div>
+
+            <div class="metric">
+              <strong>177%</strong>
+              <span>社群內容瀏覽量提升</span>
+            </div>
+
+            <div class="metric">
+              <strong>150–200</strong>
+              <span>參與規劃與宣傳的專場演出人數規模</span>
+            </div>
+          </div>
+
+          <p class="project-note">
+            以上為專案期間記錄之成果，非個人獨立貢獻的歸因估計。
+          </p>
+
+          <details class="project-details">
+            <summary>查看活動宣傳與協作內容</summary>
+
+            <ul class="bullet-list">
+              <li>參與樂團專場及演出宣傳，規劃宣傳內容、素材與發布時程。</li>
+              <li>與團隊成員、設計及影像合作人員溝通，整合創意方向。</li>
+              <li>追蹤素材製作與執行進度，協助宣傳工作如期推進。</li>
+              <li>使用 Notion 整理工作流程與執行事項。</li>
+            </ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- 關於我 -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">About Me</p>
+            <h2 id="about-title">關於我</h2>
+          </div>
+          <p>
+            結合商業管理、國際策略行銷與第一線服務經驗，
+            在理解需求與推進執行之間建立連結。
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <p>
+              我的經驗涵蓋門市營運、教育服務業行政工作，
+              以及樂團社群經營與活動宣傳。
+              這些經驗讓我有機會從不同角度理解需求，
+              並將資訊轉化為清楚的溝通內容與具體行動。
+            </p>
+
+            <p>
+              在工作中，我習慣先釐清需求、整理資訊，
+              再規劃執行方向。我重視團隊合作與細節，
+              也樂於主動提出想法、學習新工具；
+              海外留學則讓我累積跨文化合作、獨立思考與環境適應的經驗。
+            </p>
+
+            <p>
+              我希望持續累積行銷企劃、社群內容經營與專案協作經驗，
+              逐步發展從受眾理解、內容規劃到執行追蹤的整合能力。
+            </p>
+          </div>
+
+          <aside class="about-aside">
+            <h3>我的工作方式</h3>
+
+            <ul class="tags">
+              <li>先理解需求</li>
+              <li>整理與釐清資訊</li>
+              <li>重視溝通協作</li>
+              <li>留意執行細節</li>
+              <li>觀察成效</li>
+              <li>持續學習</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工作經歷 -->
+    <section
+      class="section"
+      id="experience"
+      aria-labelledby="experience-title"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h2 id="experience-title">工作經歷</h2>
+          </div>
+
+          <p>
+            從日常營運到資訊管理，累積顧客溝通、文件整理、
+            待辦追蹤與團隊協調的實務能力。
+          </p>
+        </div>
+
+        <div>
+          <article class="experience-item">
+            <div>
+              <p class="experience-date">2024.11–2025.02</p>
+              <h3>行政專員</h3>
+              <p class="experience-company">教育服務業｜公司名稱暫不公開</p>
+            </div>
+
+            <div class="experience-content">
+              <p>
+                負責文件整理、資料維護與日常行政支援，
+                並處理家長及學生諮詢，協助資訊傳遞與事項追蹤。
+              </p>
+
+              <ul class="bullet-list">
+                <li>
+                  整理學生檔案、課程表與行政文件，
+                  支援日常資訊管理與流程協調。
+                </li>
+                <li>
+                  維護活動規劃文件，整理各階段資料並完成共用資料夾歸檔，
+                  便於後續查找與使用。
+                </li>
+                <li>處理櫃檯及電話諮詢，提供相關資訊並追蹤待辦事項。</li>
+                <li>與內部同仁協調行政需求，留意作業準確性與執行進度。</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item">
+            <div>
+              <p class="experience-date">2022.07–2024.09</p>
+              <h3>門市人員</h3>
+              <p class="experience-company">弘明醫療器材行｜自家門市</p>
+            </div>
+
+            <div class="experience-content">
+              <p>
+                協助醫療器材門市的日常營運、顧客服務與商品管理，
+                累積第一線溝通、庫存觀察及營運支援經驗。
+              </p>
+
+              <ul class="bullet-list">
+                <li>
+                  <strong>顧客服務與營運支援：</strong>
+                  協助顧客接待、基本收銀、商品陳列、環境整理與貨物搬運。
+                </li>
+                <li>
+                  <strong>數位顧客溝通：</strong>
+                  配合當地顧客的使用習慣，透過 Facebook 與 LINE
+                  協助資訊傳遞與日常聯繫。
+                </li>
+                <li>
+                  <strong>到貨與庫存管理：</strong>
+                  協助到貨清點，於日常取貨過程留意庫存與補貨需求，
+                  支援門市營運。
+                </li>
+                <li>
+                  <strong>商品效期追蹤：</strong>
+                  定期留意營養品效期與庫存狀況，
+                  協助追蹤即期及滯銷商品，降低過期與庫存損耗風險。
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 學歷與論文 -->
+    <section
+      class="section"
+      id="education"
+      aria-labelledby="education-title"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Education & Research</p>
+            <h2 id="education-title">學歷與論文</h2>
+          </div>
+
+          <p>
+            以企業管理為基礎，進一步探索國際策略行銷、
+            消費者行為與社會影響。
+          </p>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-card">
+            <p class="experience-date">2025.09–2026.09｜已畢業</p>
+            <h3>University of Glasgow</h3>
+            <p class="muted">英國格拉斯哥大學</p>
+            <p class="degree">International Strategic Marketing｜碩士</p>
+
+            <div class="thesis">
+              <p class="thesis-label">MASTER’S THESIS</p>
+
+              <p class="thesis-title" lang="en">
+                How Peer Influence Shapes Experiential Travel Consumption
+                Among Taiwanese Postgraduate Students
+              </p>
+
+              <p class="muted">
+                同儕影響如何形塑臺灣研究生的體驗式旅遊消費。
+                以臺灣研究生為研究對象，關注同儕影響、
+                社會互動與個人旅遊消費選擇之間的關係。
+              </p>
+            </div>
+          </article>
+
+          <article class="education-card">
+            <p class="experience-date">2020.09–2024.06｜已畢業</p>
+            <h3>國立東華大學</h3>
+            <p class="muted" lang="en">National Dong Hwa University</p>
+            <p class="degree">企業管理學系｜學士</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 能力與工具 -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Skills & Tools</p>
+            <h2 id="skills-title">能力與工具</h2>
+          </div>
+
+          <p>
+            以實際參與的工作與專案為基礎，
+            持續擴充內容製作、資訊整理與協作工具的應用能力。
+          </p>
+        </div>
+
+        <dl class="skills-list">
+          <div class="skill-row">
+            <dt>社群內容企劃</dt>
+            <dd>
+              Instagram、Facebook 內容規劃、文案撰寫、
+              發布排程與成效觀察；使用 Meta Business Suite 管理素材發布。
+            </dd>
+          </div>
+
+          <div class="skill-row">
+            <dt>視覺與影音製作</dt>
+            <dd>使用 Canva、CapCut 製作社群視覺與宣傳素材。</dd>
+          </div>
+
+          <div class="skill-row">
+            <dt>專案協調</dt>
+            <dd>
+              素材需求溝通、時程追蹤與跨角色協作，
+              並使用 Notion 整理工作流程及執行事項。
+            </dd>
+          </div>
+
+          <div class="skill-row">
+            <dt>行政與資訊整理</dt>
+            <dd>
+              文件處理、資料歸檔、紀錄維護與待辦追蹤；
+              使用 Word、Excel、PowerPoint、Outlook。
+            </dd>
+          </div>
+
+          <div class="skill-row">
+            <dt>AI 輔助工作</dt>
+            <dd>
+              使用 ChatGPT、Gemini 協助文案發想、
+              內容規劃與素材製作。
+            </dd>
+          </div>
+
+          <div class="skill-row">
+            <dt>持續學習</dt>
+            <dd>
+              Photoshop、Illustrator、Premiere Pro
+              <span class="learning">學習中</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 聯絡 -->
+    <section
+      class="section contact"
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <div class="container contact-grid">
+        <div>
+          <p class="section-kicker">Let’s Connect</p>
+          <h2 id="contact-title">聊聊內容企劃與合作機會。</h2>
+
+          <p>
+            我期待參與行銷企劃、社群內容與專案協作相關工作，
+            將受眾理解、內容發想與執行能力運用在實際專案中。
+            歡迎透過 Email 與我聯繫。
+          </p>
+        </div>
+
+        <div class="contact-action">
+          <a class="email-link" href="mailto:ccl.chu.lin@gmail.com">
+            ccl.chu.lin@gmail.com
+          </a>
+
+          <a
+            class="button button-primary"
+            href="mailto:ccl.chu.lin@gmail.com?subject=%E5%90%88%E4%BD%9C%E8%88%87%E5%B7%A5%E4%BD%9C%E6%A9%9F%E6%9C%83"
+          >
+            寄信聯絡我
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> 朱珈麟 Chu Chia-Lin</p>
+      <a href="#home">回到頂端 ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeLabel = document.getElementById("theme-label");
+      const menuToggle = document.getElementById("menu-toggle");
+      const navigation = document.getElementById("navigation");
+
+      const darkPreference = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+
+      const mobileQuery = window.matchMedia("(max-width: 720px)");
+
+      let manualThemeSelected = false;
+
+      function setTheme(theme) {
+        const isDark = theme === "dark";
+
+        root.dataset.theme = theme;
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+
+        themeToggle.setAttribute(
+          "aria-label",
+          isDark ? "切換淺色模式" : "切換深色模式"
+        );
+
+        themeLabel.textContent = isDark ? "淺色" : "深色";
+      }
+
+      setTheme(darkPreference.matches ? "dark" : "light");
+
+      themeToggle.addEventListener("click", () => {
+        manualThemeSelected = true;
+
+        setTheme(
+          root.dataset.theme === "dark" ? "light" : "dark"
+        );
+      });
+
+      darkPreference.addEventListener("change", (event) => {
+        if (!manualThemeSelected) {
+          setTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      function setMenu(open) {
+        const expanded = mobileQuery.matches && open;
+
+        navigation.hidden = mobileQuery.matches && !expanded;
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(expanded)
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          expanded ? "關閉導覽選單" : "開啟導覽選單"
+        );
+
+        menuToggle.textContent = expanded ? "關閉" : "選單";
+      }
+
+      setMenu(false);
+
+      menuToggle.addEventListener("click", () => {
+        const isExpanded =
+          menuToggle.getAttribute("aria-expanded") === "true";
+
+        setMenu(!isExpanded);
+      });
+
+      navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          setMenu(false);
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          menuToggle.getAttribute("aria-expanded") === "true"
+        ) {
+          setMenu(false);
+          menuToggle.focus();
+        }
+      });
+
+      mobileQuery.addEventListener("change", () => {
+        setMenu(false);
+      });
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
